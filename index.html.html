@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruiter Outreach AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .email-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .typewriter {
+            border-right: 2px solid #4f46e5;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #4f46e5; }
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen font-sans">
+    <div class="container mx-auto px-4 py-12">
+        <header class="text-center mb-12">
+            <div class="flex justify-center mb-6">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/dd5e2023-f12a-45f0-bf74-70e10b11ce4d.png" alt="Modern minimalist AI assistant logo with abstract circuit design and blue gradient" class="rounded-full border-4 border-white shadow-lg" />
+            </div>
+            <h1 class="text-4xl font-bold text-gray-800 mb-3">Recruiter Outreach AI</h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Automate personalized outreach to recruiters with AI-powered email generation</p>
+        </header>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Generate Your Email</h2>
+                
+                <form id="emailForm" class="space-y-6">
+                    <div>
+                        <label for="yourName" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                        <input type="text" id="yourName" required class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                    
+                    <div>
+                        <label for="recipientName" class="block text-sm font-medium text-gray-700 mb-1">Recruiter's Name</label>
+                        <input type="text" id="recipientName" required class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                    
+                    <div>
+                        <label for="company" class="block text-sm font-medium text-gray-700 mb-1">Company Name</label>
+                        <input type="text" id="company" required class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                    
+                    <div>
+                        <label for="jobTitle" class="block text-sm font-medium text-gray-700 mb-1">Job Title You're Targeting</label>
+                        <input type="text" id="jobTitle" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                    
+                    <div>
+                        <label for="jobLink" class="block text-sm font-medium text-gray-700 mb-1">Or Paste Job Posting Link</label>
+                        <input type="url" id="jobLink" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="https://linkedin.com/jobs/view/123...">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-3">Upload Resume</label>
+                        <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                            <div class="space-y-1 text-center">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <div class="flex text-sm text-gray-600">
+                                    <label class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none">
+                                        <span>Upload PDF</span>
+                                        <input id="resumeUpload" type="file" class="sr-only" accept=".pdf,.doc,.docx">
+                                    </label>
+                                    <p class="pl-1">or drag and drop</p>
+                                </div>
+                                <p class="text-xs text-gray-500">PDF, DOC, DOCX up to 5MB</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+=======
+                        <label for="companyInfo" class="block text-sm font-medium text-gray-700 mb-1">Company/Recruiter Details (Optional)</label>
+                        <textarea id="companyInfo" rows="2" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Any info about why you're interested in this company"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200">
+                        Generate Personalized Email
+                    </button>
+                </form>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Generated Email</h2>
+                    <button id="copyBtn" class="text-indigo-600 hover:text-indigo-800 text-sm font-medium hidden">Copy to Clipboard</button>
+                </div>
+                
+                <div id="loadingIndicator" class="hidden mb-6">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-4 h-4 rounded-full bg-indigo-300 animate-pulse"></div>
+                        <div class="w-4 h-4 rounded-full bg-indigo-400 animate-pulse delay-100"></div>
+                        <div class="w-4 h-4 rounded-full bg-indigo-500 animate-pulse delay-200"></div>
+                    </div>
+                    <p class="text-gray-500 mt-2 typewriter">Generating your personalized email...</p>
+                </div>
+                
+                <div id="emailOutput" class="h-96 overflow-y-auto border border-gray-200 rounded-lg p-4 bg-gray-50 hidden">
+                    <!-- Generated email will appear here -->
+                </div>
+                
+                <div id="emptyState" class="h-96 flex flex-col items-center justify-center bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 p-6 text-center">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1ed58fc1-01d8-4224-9bfa-b523431fd02e.png" alt="Illustration of an empty email inbox with a magnifying glass" class="w-24 h-24 mb-4 opacity-60" />
+                    <h3 class="text-lg font-medium text-gray-700 mb-1">No Email Generated Yet</h3>
+                    <p class="text-gray-500">Fill out the form to generate your personalized recruiter outreach email</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Send Your Email</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-lg font-medium text-gray-800 mb-4">Send Options</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="connectRequest" type="checkbox" class="h-4 w-4 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500">
+                            </div>
+                            <label for="connectRequest" class="ml-3 text-sm text-gray-700">Include LinkedIn connection request</label>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="followUp" type="checkbox" class="h-4 w-4 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500">
+                            </div>
+                            <label for="followUp" class="ml-3 text-sm text-gray-700">Schedule follow-up email</label>
+                        </div>
+                        <div class="mt-6">
+                            <label for="sendDate" class="block text-sm font-medium text-gray-700 mb-1">Schedule Send Date</label>
+                            <input type="datetime-local" id="sendDate" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="bg-indigo-50 rounded-lg border border-indigo-100 p-4 mb-6">
+                        <h4 class="text-indigo-800 font-medium mb-2">Sending with your email client</h4>
+                        <p class="text-indigo-700 text-sm">After generating your email, click below to open it in your default email client.</p>
+                    </div>
+                    <div class="mt-auto">
+                        <button id="sendEmailBtn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200 disabled:opacity-50" disabled>
+                            Open in Email Client
+                        </button>
+                        <p class="text-xs text-gray-500 mt-2 text-center">You'll need to manually send from your email account</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg p-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">How It Works</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-gray-50 rounded-lg p-6 hover:shadow-md transition duration-200">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-indigo-600 font-bold">1</span>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-800 mb-2">Upload Resume or Job Link</h3>
+                    <p class="text-gray-600">Our AI analyzes your resume and/or job posting to extract relevant skills and requirements.</p>
+=======
+                </div>
+                <div class="bg-gray-50 rounded-lg p-6 hover:shadow-md transition duration-200">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-indigo-600 font-bold">2</span>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-800 mb-2">Generate Email</h3>
+                    <p class="text-gray-600">Our AI crafts a personalized email that highlights your fit for the role and company.</p>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-6 hover:shadow-md transition duration-200">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-indigo-600 font-bold">3</span>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-800 mb-2">Send & Connect</h3>
+                    <p class="text-gray-600">Send your email and optionally connect with the recruiter on LinkedIn.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const emailForm = document.getElementById('emailForm');
+            const emailOutput = document.getElementById('emailOutput');
+            const copyBtn = document.getElementById('copyBtn');
+            const sendEmailBtn = document.getElementById('sendEmailBtn');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const emptyState = document.getElementById('emptyState');
+            const resumeUpload = document.getElementById('resumeUpload');
+            let extractedSkills = [];
+
+            // Helper to extract job title from link (simplified example)
+            function extractJobTitleFromLink() {
+                const url = document.getElementById('jobLink').value;
+                if (!url) return '';
+                
+                try {
+                    // This simulates parsing job titles from URLs
+                    // In real implementation you'd use actual API calls to extract info
+                    const lastSegment = url.split('/').pop().replace(/-/g, ' ');
+                    return lastSegment.match(/\d+/) ? '' : lastSegment;
+                } catch {
+                    return '';
+                }
+            }
+
+            // Simulate resume parsing
+            resumeUpload.addEventListener('change', function(e) {
+                if (e.target.files.length > 0) {
+                    loadingIndicator.classList.remove('hidden');
+                    // Simulate AI processing the resume
+                    setTimeout(() => {
+                        extractedSkills = ['AI-Parsed Skill 1', 'AI-Parsed Skill 2', 'AI-Parsed Skill 3'];
+                        loadingIndicator.classList.add('hidden');
+                    }, 2000);
+                }
+            });
+=======
+            
+            // Sample email templates
+            const emailTemplates = [
+                {
+                    name: "Technical Position",
+                    template: (data) => `
+                        <p>Dear ${data.recipientName},</p>
+                        <p>I came across ${data.company}'s opening for ${data.jobTitle} and was excited to see how my skills in ${data.yourSkills} align with your needs. ${data.companyInfo ? `I particularly admire ${data.companyInfo}, which makes me eager to contribute to your team.` : ''}</p>
+                        <p>With my experience in [specific experience], I've successfully [specific achievement]. I'm confident I could bring similar results to ${data.company}.</p>
+                        <p>Would you be open to a quick chat to discuss how I might contribute to your team? I'm available [your availability].</p>
+                        <p>Best regards,<br>${data.yourName}</p>
+                    `
+                },
+                {
+                    name: "Creative Position",
+                    template: (data) => `
+                        <p>Hi ${data.recipientName},</p>
+                        <p>The ${data.jobTitle} role at ${data.company} caught my attention as it perfectly blends my passions for ${data.yourSkills.replace(/,/g, ' and')}. ${data.companyInfo ? `Your recent ${data.companyInfo} demonstrates the innovative approach I'd love to be part of.` : ''}</p>
+                        <p>In my current/previous role, I [specific creative achievement]. I'm particularly proud of [specific project], where I [specific contribution].</p>
+                        <p>I'd love to discuss how my creative perspective could benefit ${data.company}. Are you available for a coffee chat next week?</p>
+                        <p>Warm regards,<br>${data.yourName}</p>
+                    `
+                },
+                {
+                    name: "Executive Outreach",
+                    template: (data) => `
+                        <p>Dear ${data.recipientName},</p>
+                        <p>As someone who has followed ${data.company}'s growth in [industry], I was intrigued by your search for a ${data.jobTitle}. My background in ${data.yourSkills} and experience with [specific experience] aligns well with your strategic direction.</p>
+                        <p>${data.companyInfo ? `Your recent ${data.companyInfo} particularly resonated with me as it mirrors my approach to [specific business challenge].` : 'During my tenure at [previous company], I led [specific initiative] that resulted in [specific outcome].'}</p>
+                        <p>I'd welcome the opportunity to discuss how I might contribute to ${data.company}'s continued success. Might you have 20 minutes in the coming weeks?</p>
+                        <p>Sincerely,<br>${data.yourName}</p>
+                    `
+                }
+            ];
+            
+            // Form submission handler
+            emailForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = {
+                    yourName: document.getElementById('yourName').value,
+                    recipientName: document.getElementById('recipientName').value,
+                    company: document.getElementById('company').value,
+                    jobTitle: document.getElementById('jobTitle').value || this.extractJobTitleFromLink(),
+                    jobLink: document.getElementById('jobLink').value,
+                    yourSkills: extractedSkills.join(', '),
+=======
+                    companyInfo: document.getElementById('companyInfo').value
+                };
+                
+                // Show loading state
+                loadingIndicator.classList.remove('hidden');
+                emptyState.classList.add('hidden');
+                emailOutput.classList.add('hidden');
+                copyBtn.classList.add('hidden');
+                sendEmailBtn.disabled = true;
+                
+                // Simulate AI processing time
+                setTimeout(() => {
+                    generateEmail(formData);
+                    
+                    // Hide loading and show results
+                    loadingIndicator.classList.add('hidden');
+                    emailOutput.classList.remove('hidden');
+                    copyBtn.classList.remove('hidden');
+                    sendEmailBtn.disabled = false;
+                }, 1500);
+            });
+            
+            // Generate email function
+            function generateEmail(data) {
+                // Randomly select a template for demo purposes
+                const template = emailTemplates[Math.floor(Math.random() * emailTemplates.length)];
+                const emailContent = template.template(data);
+                
+                // Format the email with proper line breaks
+                emailOutput.innerHTML = emailContent.split('\n').map(paragraph => 
+                    paragraph.trim() ? `<p class="mb-4">${paragraph.trim()}</p>` : ''
+                ).join('');
+                
+                // Add a more personalized subject line
+                const subjectLine = `Regarding the ${data.jobTitle} position at ${data.company}`;
+                emailOutput.innerHTML = `
+                    <div class="border-b border-gray-200 pb-4 mb-4">
+                        <p class="text-gray-500 text-sm">Subject: ${subjectLine}</p>
+                    </div>
+                    ${emailOutput.innerHTML}
+                `;
+            }
+            
+            // Copy to clipboard functionality
+            copyBtn.addEventListener('click', function() {
+                const emailText = emailOutput.innerText;
+                navigator.clipboard.writeText(emailText)
+                    .then(() => {
+                        copyBtn.textContent = 'Copied!';
+                        setTimeout(() => {
+                            copyBtn.textContent = 'Copy to Clipboard';
+                        }, 2000);
+                    })
+                    .catch(err => {
+                        console.error('Failed to copy text: ', err);
+                        copyBtn.textContent = 'Error copying';
+                    });
+            });
+            
+            // Open in email client functionality
+            sendEmailBtn.addEventListener('click', function() {
+                const emailText = emailOutput.innerText;
+                const subjectLine = emailText.split('\n')[0].replace('Subject: ', '');
+                const bodyContent = emailText.split('\n').slice(2).join('\n');
+                
+                window.location.href = `mailto:?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(bodyContent)}`;
+            });
+        });
+    </script>
+</body>
+</html>
